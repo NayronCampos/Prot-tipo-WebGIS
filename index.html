@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebGIS Saúde Próxima</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <div>
+            <h1>WebGIS Saúde Próxima</h1>
+            <p>
+                Encontre farmácias e laboratórios próximos
+            </p>
+        </div>
+
+        <button id="btnLocalizacao" class="primary">
+            📍 Minha localização
+        </button>
+
+    </header>
+
+
+    <main class="layout">
+
+        <aside class="sidebar">
+
+            <section class="panel">
+
+                <h2>Pesquisar localização</h2>
+
+                <div class="search-row">
+
+                    <input
+                        id="endereco"
+                        type="text"
+                        placeholder="Ex.: Praça da Liberdade, BH"
+                    >
+
+                    <button id="btnBuscar">
+                        Buscar
+                    </button>
+
+                </div>
+
+                <small id="status">
+                    Informe um endereço ou use sua localização.
+                </small>
+
+            </section>
+
+
+            <section class="panel">
+
+                <h2>Filtros</h2>
+
+                <label for="tipo">
+                    Tipo de estabelecimento
+                </label>
+
+                <select id="tipo">
+
+                    <option value="todos">
+                        Todos
+                    </option>
+
+                    <option value="farmacia">
+                        Farmácias
+                    </option>
+
+                    <option value="laboratorio">
+                        Laboratórios
+                    </option>
+
+                </select>
+
+
+                <label for="raio">
+                    Raio de busca
+                </label>
+
+                <select id="raio">
+
+                    <option value="1000">
+                        1 km
+                    </option>
+
+                    <option value="3000" selected>
+                        3 km
+                    </option>
+
+                    <option value="5000">
+                        5 km
+                    </option>
+
+                    <option value="10000">
+                        10 km
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="btnFiltrar"
+                    class="secondary"
+                >
+                    Aplicar filtros
+                </button>
+
+            </section>
+
+
+            <section class="panel">
+
+                <div class="results-title">
+
+                    <h2>Resultados</h2>
+
+                    <span id="contador">
+                        0
+                    </span>
+
+                </div>
+
+                <div id="resultados" class="results">
+
+                    <div class="empty">
+                        Nenhum resultado carregado.
+                    </div>
+
+                </div>
+
+            </section>
+
+        </aside>
+
+
+        <section class="map-container">
+
+            <div id="map"></div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
